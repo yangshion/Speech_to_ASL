@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#636363" /> <!-- 最外圈的灰，对应RGB(99, 99, 99) -->
+            <size android:width="80dp" android:height="80dp" />
+        </shape>
+    </item>
+    <item
+        android:width="70dp"
+        android:height="70dp"
+        android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="#565656" /> <!-- 红周围的黑，对应RGB(86, 86, 86) -->
+        </shape>
+    </item>
+    <item
+        android:width="30dp"
+        android:height="30dp"
+        android:gravity="center">
+        <shape android:shape="rectangle">
+            <solid android:color="#DA483B" /> <!-- 红，对应RGB(218, 72, 59) -->
+        </shape>
+    </item>
+</layer-list>

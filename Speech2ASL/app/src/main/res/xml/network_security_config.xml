@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <base-config>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user"
+                tools:ignore="AcceptsUserCertificates" />
+        </trust-anchors>
+        <!-- 配置代理 -->
+        <proxy
+            android:host="127.0.0.1"
+            android:port="7890" />
+    </base-config>
+</network-security-config>

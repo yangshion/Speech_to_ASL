@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#303030" />  <!-- RGB(48, 48, 48) -->
+    <corners android:radius="8dp" />    <!-- 圆角，可根据图片调整 -->
+</shape>

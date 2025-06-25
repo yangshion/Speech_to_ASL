@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- 顶部文本区域 ，使用 LinearLayout 垂直排列子视图-->
+    <LinearLayout
+        android:id="@+id/text_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/video_container"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <!-- 用于显示识别结果的文本视图 -->
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp" />
+
+        <!-- 用于显示翻译结果的文本视图，文字颜色为蓝色 -->
+        <TextView
+            android:id="@+id/tv_translation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#2196F3"
+            android:layout_marginBottom="1dp" />
+    </LinearLayout>
+
+    <!-- 视频和重播按钮容器 -->
+    <LinearLayout
+        android:id="@+id/video_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_container"
+        app:layout_constraintBottom_toTopOf="@id/buttons_container"
+        app:layout_constraintVertical_bias="0.5"> <!-- 垂直居中 -->
+
+        <!-- 视频播放区域，使用 ExoPlayer 的 PlayerView 来播放视频 -->
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="215dp"
+            android:visibility="gone"
+            android:layout_marginBottom="1dp" />
+
+        <!-- 显示完成ASL语法转换的句子的文本区域 -->
+        <TextView
+            android:id="@+id/tv_ASL_Sentence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- 重播按钮，点击可重新播放视频 -->
+        <Button
+            android:id="@+id/btnReplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="重新播放"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- 进度条容器 -->
+    <LinearLayout
+        android:id="@+id/progress_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/video_container"
+        app:layout_constraintBottom_toTopOf="@id/buttons_container">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下载进度: 0%"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+
+    <!-- 底部按钮区域，使用 LinearLayout 垂直排列子视图 -->
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_status"
+        app:layout_constraintVertical_bias="0.0"> <!-- 偏向底部 -->
+
+        <!-- 水平布局：包含所有三个按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <!-- 左侧间隔区域 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <!-- 确认按钮 -->
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/btn_confirm_background"
+                android:text="确认"
+                android:textColor="#F9FFF9"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:minWidth="60dp"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical" />
+
+            <!-- 中间间隔区域 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <!-- 底部录音按钮 -->
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/btn_voice"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- 右侧间隔区域 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <!-- 取消按钮 -->
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/btn_cancel_background"
+                android:text="取消"
+                android:textColor="#F9FFF9"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:minWidth="60dp"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical" />
+
+            <!-- 右侧间隔区域 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 用于显示当前状态的文本视图，如等待中、正在录音... -->
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="状态：等待中"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
