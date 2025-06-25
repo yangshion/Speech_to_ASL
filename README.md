@@ -83,3 +83,13 @@ ASL的语法跟一般的英语句子有很大的不同，比如，在ASL中，�
 遍历处理好的视频文件绝对路径，使用第三方工具exoplayer来解析视频二进制代码进行视频播放，每次播放会挂起协程，对每个视频进行监听，播放完才恢复协程，顺序播放。
 每个视频，播放完会回到主线程。此外，视频文件的绝对路径在主活动中也进行了保存，可用于视频重播。
 细节:调用这个视频解析函数时还进行了进度的回调，每解析完一个视频会进行进度的更新。
+
+##实际效果演示：
+
+<img width="214" alt="1" src="https://github.com/user-attachments/assets/c1660745-f51f-4da7-a73a-5f28d8e882ea" />
+
+<img width="208" alt="2" src="https://github.com/user-attachments/assets/7631c4f5-6396-43f4-9736-b05028e95b50" />
+
+<img width="209" alt="3" src="https://github.com/user-attachments/assets/a08e1db0-1700-40bc-acb0-6fab26884ced" />
+
+<img width="208" alt="4" src="https://github.com/user-attachments/assets/9375554d-8f60-4e41-ada1-c29e39808daa" />
