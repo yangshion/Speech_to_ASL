@@ -1,6 +1,20 @@
 # Speech_to_ASL
 本项目旨在实现将语音输入转化为对应美国手语演示视频，然后播放。
 
+##项目介绍：
+在**Android studio**平台上开发，将语音输入调用**Google语音服务**转换为文字，将文字通过**百度翻译api**翻译为英文，将得到的英文使用**斯坦福句法解析模型**进行**词性分析**，根据每个词的词性对英文句子进行调整，从而**转换成美国手语ASL**语法规范的句子，最后将各个单词作为关键词到美国手语演示网站中**爬取对应视频**然后**播放**，并实现**点击按钮重新播放**手语视频。
+
+##实际效果演示：
+
+<img width="214" alt="1" src="https://github.com/user-attachments/assets/c1660745-f51f-4da7-a73a-5f28d8e882ea" />
+
+<img width="208" alt="2" src="https://github.com/user-attachments/assets/7631c4f5-6396-43f4-9736-b05028e95b50" />
+
+<img width="209" alt="3" src="https://github.com/user-attachments/assets/a08e1db0-1700-40bc-acb0-6fab26884ced" />
+
+<img width="208" alt="4" src="https://github.com/user-attachments/assets/9375554d-8f60-4e41-ada1-c29e39808daa" />
+
+
 ##本次项目解决了什么需求？
 
 当你想传达信息给一个不会打字的使用美国手语的聋哑人，你可以通过语音输入，让app转换出相应的手语视频动画进行告知，后期待app扩展出反向的转换功能，即可实现与使用美国手语的聋哑人无障碍沟通。
@@ -84,12 +98,3 @@ ASL的语法跟一般的英语句子有很大的不同，比如，在ASL中，�
 每个视频，播放完会回到主线程。此外，视频文件的绝对路径在主活动中也进行了保存，可用于视频重播。
 细节:调用这个视频解析函数时还进行了进度的回调，每解析完一个视频会进行进度的更新。
 
-##实际效果演示：
-
-<img width="214" alt="1" src="https://github.com/user-attachments/assets/c1660745-f51f-4da7-a73a-5f28d8e882ea" />
-
-<img width="208" alt="2" src="https://github.com/user-attachments/assets/7631c4f5-6396-43f4-9736-b05028e95b50" />
-
-<img width="209" alt="3" src="https://github.com/user-attachments/assets/a08e1db0-1700-40bc-acb0-6fab26884ced" />
-
-<img width="208" alt="4" src="https://github.com/user-attachments/assets/9375554d-8f60-4e41-ada1-c29e39808daa" />
